@@ -4,8 +4,9 @@ import { useState } from "react"
 import { Button } from "./Button"
 import axios from "axios"
 import { BACKEND_URL } from "../config"
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
+import { Spinner } from "./Spinner"
 export const SignUpComponent = () => {
   const navigate = useNavigate()
 
@@ -14,7 +15,10 @@ export const SignUpComponent = () => {
     name: "",
     password: "",
   })
-
+  const [loading, setLoading] = useState(true)
+  if (loading) {
+    return <Spinner />
+  }
   return (
     <div className="flex flex-col space-y-3 justify-center text-center ">
       <div className="text-3xl font-semibold font-mono text-slate-900">
@@ -71,6 +75,7 @@ export const SignUpComponent = () => {
         <Button
           label="Sign Up"
           onClick={async () => {
+            setLoading(true)
             const response = await axios.post(
               `${BACKEND_URL}/api/v1/user/signup`,
               {
@@ -81,6 +86,7 @@ export const SignUpComponent = () => {
             )
             if (response.data.message) {
               toast(response.data.message)
+              setLoading(false)
             }
             console.log(response.data)
             if (response.data.user) {
@@ -88,7 +94,6 @@ export const SignUpComponent = () => {
             }
           }}
         />
-        <ToastContainer />
       </div>
     </div>
   )

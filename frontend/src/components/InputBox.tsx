@@ -20,9 +20,9 @@ export const InputBox = ({ id, label, type, placeholder, onChange }: InputBoxTyp
         id={id}
         type={type}
         placeholder={placeholder}
-        required
         autoComplete="off"
         onChange={onChange}
+        required
       />
     </div>
   )

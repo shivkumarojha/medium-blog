@@ -3,9 +3,13 @@ import { SignInComponent } from "../components/SignInComponent"
 
 function SignIn() {
   return (
-    <div className="grid grid-col-2">
-      <SignInComponent />
-      <Quote />
+    <div className="grid  grid-cols-2">
+      <div>
+        <SignInComponent />
+      </div>
+      <div>
+        <Quote />
+      </div>
     </div>
   )
 }

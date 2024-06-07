@@ -10,6 +10,7 @@ export const Button = ({ label, onClick }: ButtonType) => {
     <button
       className="bg-black text-white p-2 mt-2 rounded-xl"
       onClick={onClick}
+      type="submit"
     >
       {label}
     </button>
