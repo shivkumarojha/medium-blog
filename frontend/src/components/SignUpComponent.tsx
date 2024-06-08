@@ -15,7 +15,7 @@ export const SignUpComponent = () => {
     name: "",
     password: "",
   })
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   if (loading) {
     return <Spinner />
   }
