@@ -1,7 +1,13 @@
 import { BlogType } from "../pages/Blog"
 import { useNavigate } from "react-router-dom"
-
-export const BlogCard = ({ blog }: { blog: BlogType }) => {
+import { AuthorType } from "../pages/Blog"
+export const BlogCard = ({
+  blog,
+  author,
+}: {
+  blog: BlogType
+  author: AuthorType
+}) => {
   const navigate = useNavigate()
   return (
     <div
@@ -15,10 +21,10 @@ export const BlogCard = ({ blog }: { blog: BlogType }) => {
       <div className="border-b-4 w-full">
         <div className="flex flex-row">
           <div className="flex justify-center w-7 h-7 rounded-full bg-slate-400 text-white font-bold mr-2">
-            {blog.author.name[0]}
+            {author.name[0]}
           </div>
           <div className="font-mono font-light pb-1">
-            {blog.author.name || "Anonymous"}
+            {author.name || "Anonymous"}
           </div>
         </div>
 

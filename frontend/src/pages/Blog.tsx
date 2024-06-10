@@ -12,8 +12,19 @@ export interface BlogType {
   title: string
   content: string
 }
+
+export interface AuthorType {
+  id: string
+  name: string
+  email: string
+}
 function Blog() {
   const navigate = useNavigate()
+  const [author, setAuthor] = useState<AuthorType>({
+    email: "",
+    name: "",
+    id: "",
+  })
   const [blogs, setBlogs] = useState<BlogType[]>([
     {
       author: { name: "" },
@@ -33,7 +44,12 @@ function Blog() {
           },
         })
         .then((response) => {
-          setBlogs(response.data.blogs)
+          setBlogs(response.data.data.post)
+          setAuthor({
+            id: response.data.data.id,
+            email: response.data.data.email,
+            name: response.data.data.name,
+          })
           setLoading(false)
         })
     }
@@ -57,7 +73,7 @@ function Blog() {
       <Navbar isAuthenticated={true} />
       <div className="p-3 grid grid-cols-2  w-full justify-center">
         {blogs.map((blog) => {
-          return <BlogCard blog={blog} />
+          return <BlogCard blog={blog} author={author} />
         })}
       </div>
     </div>
