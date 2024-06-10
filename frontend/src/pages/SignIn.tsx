@@ -1,9 +1,7 @@
-import { useState } from "react"
 import { Quote } from "../components/Quote"
 import { SignInComponent } from "../components/SignInComponent"
 
-function SignIn() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+function SignIn({ isAuthenticated, setIsAuthenticated }) {
   return (
     <div className="grid  grid-cols-2">
       <div>

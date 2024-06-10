@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css"
 import HomePage from "./pages/HomePage"
 import { CreateBlog } from "./pages/CreateBlog"
 import { SingleBlog } from "./pages/SingleBlog"
-// import { BACKEND_URL } from "./config"
 function App() {
   return (
     <>

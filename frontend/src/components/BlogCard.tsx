@@ -5,19 +5,28 @@ export const BlogCard = ({ blog }: { blog: BlogType }) => {
   const navigate = useNavigate()
   return (
     <div
-      className="flex flex-col text-center border-b-4"
+      className="flex  w-full p-10"
       key={blog.id}
       onClick={() => {
         const id = blog.id
         navigate(`/blog/${id}`)
       }}
     >
-      <div className="">
-        <div className="font-mono font-semibold pb-1">
-          {blog.author.name || "Anonymous"}
+      <div className="border-b-4 w-full">
+        <div className="flex flex-row">
+          <div className="flex justify-center w-7 h-7 rounded-full bg-slate-400 text-white font-bold mr-2">
+            {blog.author.name[0]}
+          </div>
+          <div className="font-mono font-light pb-1">
+            {blog.author.name || "Anonymous"}
+          </div>
         </div>
-        <div className="text-xl">{blog.title}</div>
-        <div className="pb-4">{blog.content}</div>
+
+        <div className="text-xl mb-3">{blog.title}</div>
+        <div
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+          className="pb-4"
+        ></div>
       </div>
     </div>
   )

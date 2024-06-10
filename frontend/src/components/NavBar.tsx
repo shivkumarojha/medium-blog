@@ -8,7 +8,7 @@ export const Navbar = ({
 }) => {
   const navigate = useNavigate()
   return (
-    <div className="relative">
+    <div className="relative mb-20">
       <div className="fixed top-0 left-0 right-0 flex justify-between bg-slate-600">
         <div className="text-2xl font-semibold font-mono p-2 text-slate-100">
           Blog Like Pro

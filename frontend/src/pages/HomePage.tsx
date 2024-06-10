@@ -6,7 +6,6 @@ import axios from "axios"
 import { BACKEND_URL } from "../config"
 
 function HomePage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const navigate = useNavigate()
   // Check if the user is logged in
   useEffect(() => {
@@ -42,8 +41,7 @@ function HomePage() {
   return (
     <div className="h-screen">
       <Navbar
-        isAuthenticated={isAuthenticated}
-        setIsAuthenticated={setIsAuthenticated}
+       
       />
       <Quote />
     </div>
