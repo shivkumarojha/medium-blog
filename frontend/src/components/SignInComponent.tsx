@@ -6,12 +6,13 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-export const SignInComponent = () => {
+export const SignInComponent = ({isAuthenticated, setIsAuthenticated}) => {
   const navigate = useNavigate()
   const [signInData, setSignInData] = useState({
     email: "",
     password: "",
   })
+  
   return (
     <div className="text-center flex flex-col justify-center h-screen">
       <div className="text-2xl font-semibold font-mono mb-2">
@@ -60,6 +61,7 @@ export const SignInComponent = () => {
             if (response.data.token) {
               localStorage.setItem("token", response.data.token)
               toast(response.data.message)
+              setIsAuthenticated(true)
               navigate("/blog")
             }
           }}

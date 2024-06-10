@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import "./App.css"
 import Signup from "./pages/Signup"
 import SignIn from "./pages/SignIn"
@@ -7,18 +7,21 @@ import Blog from "./pages/Blog"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import HomePage from "./pages/HomePage"
+import { CreateBlog } from "./pages/CreateBlog"
+import { SingleBlog } from "./pages/SingleBlog"
+// import { BACKEND_URL } from "./config"
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <ToastContainer />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-      </BrowserRouter>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/createBlog" element={<CreateBlog />} />
+        <Route path="blog/:id" element={<SingleBlog />} />
+      </Routes>
     </>
   )
 }
