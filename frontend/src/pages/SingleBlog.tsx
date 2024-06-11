@@ -4,7 +4,7 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import { BlogCard } from "../components/BlogCard"
 import { Navbar } from "../components/NavBar"
-import { BlogType } from "./Blog"
+import { AuthorType, BlogType } from "./Blog"
 import { Spinner } from "../components/Spinner"
 
 export const SingleBlog = () => {
@@ -14,6 +14,11 @@ export const SingleBlog = () => {
     author: { name: "" },
     content: "",
     title: "",
+    id: "",
+  })
+  const [author, setAuthor] = useState<AuthorType>({
+    email: "",
+    name: "",
     id: "",
   })
   useEffect(() => {
@@ -26,6 +31,12 @@ export const SingleBlog = () => {
       .then((response) => {
         console.log(response.data)
         setBlog(response.data.blog)
+        setAuthor({
+          id: response.data.blog.authorId,
+          email: response.data.blog.author.email,
+          name: response.data.blog.author.name,
+        })
+
         setLoading(false)
       })
   }, [])
@@ -38,7 +49,7 @@ export const SingleBlog = () => {
     <div>
       <Navbar isAuthenticated={true} />
       <div className="pt-20">
-        <BlogCard blog={blog}></BlogCard>
+        <BlogCard blog={blog} author={author}></BlogCard>
       </div>
     </div>
   )

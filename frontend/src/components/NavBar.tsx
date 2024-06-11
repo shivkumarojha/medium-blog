@@ -4,7 +4,7 @@ import { Button } from "./Button"
 export const Navbar = ({
   isAuthenticated = false,
 }: {
-  isAuthenticated: boolean
+  isAuthenticated?: boolean
 }) => {
   const navigate = useNavigate()
   return (

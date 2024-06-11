@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Navbar } from "../components/NavBar"
 import { Quote } from "../components/Quote"
 import { useNavigate } from "react-router-dom"
@@ -40,9 +40,7 @@ function HomePage() {
   }, [])
   return (
     <div className="h-screen">
-      <Navbar
-       
-      />
+      <Navbar />
       <Quote />
     </div>
   )

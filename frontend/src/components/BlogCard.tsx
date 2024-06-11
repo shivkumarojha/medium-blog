@@ -8,6 +8,8 @@ export const BlogCard = ({
   blog: BlogType
   author: AuthorType
 }) => {
+  console.log(blog)
+  console.log(author)
   const navigate = useNavigate()
   return (
     <div

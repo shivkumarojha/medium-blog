@@ -1,14 +1,11 @@
 import { Quote } from "../components/Quote"
 import { SignInComponent } from "../components/SignInComponent"
 
-function SignIn({ isAuthenticated, setIsAuthenticated }) {
+function SignIn() {
   return (
     <div className="grid  grid-cols-2">
       <div>
-        <SignInComponent
-          isAuthenticated={isAuthenticated}
-          setIsAuthenticated={setIsAuthenticated}
-        />
+        <SignInComponent />
       </div>
       <div>
         <Quote />
